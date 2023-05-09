@@ -1,0 +1,20 @@
+load("@aspect_rules_jest//jest:defs.bzl", "jest_test")
+load("@npm_aspect//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages()
+
+jest_test(
+    name = "with_reporters",
+    auto_configure_reporters = True,
+    config = "jest.config.json",
+    data = ["local.test.js"],
+    node_modules = "//:node_modules",
+)
+
+jest_test(
+    name = "without_reporters",
+    auto_configure_reporters = False,
+    config = "jest.config.json",
+    data = ["local.test.js"],
+    node_modules = "//:node_modules",
+)

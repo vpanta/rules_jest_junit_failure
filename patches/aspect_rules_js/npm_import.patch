@@ -1,0 +1,13 @@
+diff --git a/npm/private/npm_import.bzl b/npm/private/npm_import.bzl
+index 5fcce1486a9..bbd7867e549 100644
+--- a/npm/private/npm_import.bzl
++++ b/npm/private/npm_import.bzl
+@@ -746,7 +746,7 @@
+         virtual_store_name = virtual_store_name,
+         virtual_store_root = utils.virtual_store_root,
+         maybe_bins = maybe_bins,
+-        dev = rctx.attr.dev,
++        dev = False,  # Monorepo, all dependencies matter.
+     )]
+ 
+     generated_by_lines = _make_generated_by_lines(rctx.attr.package, rctx.attr.version)
